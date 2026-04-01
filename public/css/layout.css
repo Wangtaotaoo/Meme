@@ -1,0 +1,69 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 20px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: 8px 0;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.emoji-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.emoji-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.emoji-area::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}

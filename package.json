@@ -1,0 +1,19 @@
+{
+  "name": "feishu-emoji-picker",
+  "version": "1.0.0",
+  "description": "飞书表情包选择器 - 网页应用",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "better-sqlite3": "^11.6.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

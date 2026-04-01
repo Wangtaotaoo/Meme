@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表情包选择器</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/search.css">
+  <link rel="stylesheet" href="/css/upload.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header-title">表情包选择器</h1>
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="text" id="search-input" class="search-input" placeholder="搜索表情...">
+          <span class="search-icon">&#128269;</span>
+        </div>
+        <button id="upload-btn" class="btn btn-primary upload-btn">上传表情</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="category-nav">
+        <!-- Categories injected by JS -->
+      </aside>
+
+      <!-- Emoji grid -->
+      <main class="emoji-area">
+        <div class="emoji-grid" id="emoji-grid">
+          <!-- Emojis injected by JS -->
+        </div>
+        <div class="loading-indicator is-hidden" id="loading">
+          <div class="spinner"></div>
+        </div>
+        <div class="empty-state is-hidden" id="empty-state">
+          <p>没有找到表情</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Emoji detail modal -->
+  <div class="modal-overlay is-hidden" id="emoji-detail-modal">
+    <div class="modal emoji-detail-modal">
+      <button class="modal-close" id="detail-close">&times;</button>
+      <div class="detail-image-wrap">
+        <img id="detail-image" class="detail-image" src="" alt="">
+      </div>
+      <h3 id="detail-name" class="detail-name"></h3>
+      <p id="detail-tags" class="detail-tags"></p>
+      <div class="detail-actions">
+        <button class="btn btn-primary" id="detail-copy">复制</button>
+        <button class="btn btn-secondary" id="detail-download">下载</button>
+        <button class="btn btn-secondary" id="detail-favorite">收藏</button>
+        <button class="btn btn-danger is-hidden" id="detail-delete">删除</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload modal -->
+  <div class="modal-overlay is-hidden" id="upload-modal">
+    <div class="modal upload-modal">
+      <button class="modal-close" id="upload-close">&times;</button>
+      <h2 class="upload-title">上传表情</h2>
+      <form id="upload-form" class="upload-form">
+        <div class="dropzone" id="dropzone">
+          <div class="dropzone-content">
+            <div class="dropzone-icon">&#128228;</div>
+            <p>拖拽图片到这里，或点击选择文件</p>
+            <p class="dropzone-hint">支持 PNG、JPG、GIF、WebP，最大 1MB</p>
+          </div>
+          <input type="file" id="file-input" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
+        </div>
+        <div class="preview-area is-hidden" id="preview-area">
+          <img id="preview-image" class="preview-image" src="" alt="预览">
+          <button type="button" class="btn btn-secondary" id="remove-preview">移除</button>
+        </div>
+        <div class="upload-fields">
+          <div class="field">
+            <label for="emoji-name">名称 *</label>
+            <input type="text" id="emoji-name" required placeholder="给表情起个名字">
+          </div>
+          <div class="field">
+            <label for="emoji-category">分类</label>
+            <select id="emoji-category">
+              <option value="">不分类</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="emoji-tags">标签</label>
+            <input type="text" id="emoji-tags" placeholder="用逗号分隔，如：搞笑,可爱">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary upload-submit" id="upload-submit">上传</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JS -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
